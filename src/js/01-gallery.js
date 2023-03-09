@@ -1,16 +1,9 @@
-import { galleryItems } from './gallery-items.js';
-// Change code below this line
-
-// Описаний в документації
+// / Описаний в документації
 import SimpleLightbox from "simplelightbox";
 // Додатковий імпорт стилів
 import "simplelightbox/dist/simple-lightbox.min.css";
 
-// Додатковий імпорт стилів
-// import "simplelightbox/dist/simple-lightbox.min.css";
-
 import { galleryItems } from './gallery-items.js';
-// Change code below this line
 
 console.log(galleryItems);
 
