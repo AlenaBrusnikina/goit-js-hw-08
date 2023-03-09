@@ -19,7 +19,7 @@ new SimpleLightbox('.gallery a', {
 function createsMarkupGalleryItems(galleryItems) {
   return galleryItems
     .map(items => {
-      return `<li class="gallery__item">
+      return `<div class="gallery__item">
     <a class="gallery__link" href="${items.original}">
     <img
         class="gallery__image"
@@ -27,7 +27,7 @@ function createsMarkupGalleryItems(galleryItems) {
         alt="${items.description}"
     />
     </a>
-</li>`;
+</div>`;
     })
     .join('');
 }
