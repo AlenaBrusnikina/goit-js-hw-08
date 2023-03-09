@@ -1,49 +1,43 @@
 import { galleryItems } from './gallery-items.js';
 // Change code below this line
 
+// Описаний в документації
+import SimpleLightbox from "simplelightbox";
+// Додатковий імпорт стилів
+import "simplelightbox/dist/simple-lightbox.min.css";
+
 // Додатковий імпорт стилів
 // import "simplelightbox/dist/simple-lightbox.min.css";
+
+import { galleryItems } from './gallery-items.js';
+// Change code below this line
+
+console.log(galleryItems);
 
 const galleryEl = document.querySelector('.gallery');
 const imgMarkup = createsMarkupGalleryItems(galleryItems);
 
 galleryEl.insertAdjacentHTML('beforeend', imgMarkup);
 
+new SimpleLightbox('.gallery a', {
+  captionsData: 'alt',
+  captionDelay: 250,
+});
+
 function createsMarkupGalleryItems(galleryItems) {
   return galleryItems
-    .map(({ description, original, preview }) => {
-      return `<div class="gallery__item">
-    <a class="gallery__link" href="large-image.jpg">
+    .map(items => {
+      return `<li class="gallery__item">
+    <a class="gallery__link" href="${items.original}">
     <img
         class="gallery__image"
-        src="${preview}"
-        data-source="${original}"
-        alt="${description}"
+        src="${items.preview}"
+        alt="${items.description}"
     />
     </a>
-</div>`;
+</li>`;
     })
     .join('');
 }
 
-galleryEl.addEventListener('click', onClick);
-
-function onClick(event) {
-  event.preventDefault();
-
-  if (!event.target.classList.contains('gallery__image')) {
-    return;
-  }
-
-  const instance = basicLightbox.create(`
-   <img src="${event.target.dataset.source}" width="800" height="600">
-`);
-
-  instance.show();
-
-  galleryEl.addEventListener('keydown', event => {
-    if (event.code === 'Escape') {
-      instance.close();
-    }
-  });
-}
+console.log(imgMarkup);
