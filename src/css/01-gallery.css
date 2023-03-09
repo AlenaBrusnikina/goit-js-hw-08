@@ -3,6 +3,15 @@
   --animation-duration: 250ms;
 }
 
+li {
+  list-style: none;
+}
+
+img {
+  display: block;
+}
+
+
 .gallery {
   display: grid;
   max-width: 1140px;
